@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoute.js";
+import { notFount, errorHandler } from "./middleware/errorMiddleware.js";
 const port = process.env.PORT || 8000;
 
 connectDB();
@@ -13,6 +14,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/products", productRoutes);
+app.use(notFount);
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
