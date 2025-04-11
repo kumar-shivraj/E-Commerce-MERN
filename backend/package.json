@@ -7,17 +7,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
     "client": "cd ../frontend && npm start",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node seeder.js",
+    "data:destroy": "node seeder.js -d"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "colors": "^1.4.0",
     "dotenv": "^16.4.7",
     "nodemon": "^3.1.9"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "concurrently": "^9.1.2",
     "express": "^5.1.0",
     "mongoose": "^8.13.2"
