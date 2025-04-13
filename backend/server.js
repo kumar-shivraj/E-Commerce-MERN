@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoute.js";
 import userRoutes from "./routes/userRoutes.js";
 import { notFount, errorHandler } from "./middleware/errorMiddleware.js";
+import cookieParser from "cookie-parser";
 const port = process.env.PORT || 8000;
 
 connectDB();
@@ -13,6 +14,9 @@ const app = express();
 app.use(express.json());
 // url encoded parser middleware
 app.use(express.urlencoded({ extended: true }));
+
+// Cookie parser middleware
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send("App is running...");
