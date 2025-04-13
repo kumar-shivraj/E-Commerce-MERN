@@ -9,6 +9,10 @@ const port = process.env.PORT || 8000;
 
 connectDB();
 const app = express();
+// body parser middleware
+app.use(express.json());
+// url encoded parser middleware
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("App is running...");
