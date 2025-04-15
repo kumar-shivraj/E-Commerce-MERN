@@ -34,6 +34,8 @@ const PlaceOrderScreen = () => {
         taxPrice: cart.taxPrice,
         totalPrice: cart.totalPrice,
       }).unwrap();
+      console.log("cart: ", cart);
+      console.log("res: ", res);
       dispatch(clearCartItems());
       navigate(`/order/${res._id}`);
     } catch (err) {
