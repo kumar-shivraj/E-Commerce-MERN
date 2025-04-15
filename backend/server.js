@@ -2,8 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import connectDB from "./config/db.js";
-import productRoutes from "./routes/productRoute.js";
+import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 import { notFount, errorHandler } from "./middleware/errorMiddleware.js";
 import cookieParser from "cookie-parser";
 const port = process.env.PORT || 8000;
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/orders", orderRoutes);
 app.use(notFount);
 app.use(errorHandler);
 
